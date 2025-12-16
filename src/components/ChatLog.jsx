@@ -7,17 +7,21 @@ const ChatLog = (props) => {
       {props.entries.map(message => (
         <ChatEntry
           key={message.id}
+          id={message.id}
           sender={message.sender}
           body={message.body}
           timeStamp={message.timeStamp}
+          liked={message.liked}
+          onLikeToggle={props.onLikeToggle}
         />
       ))}
     </section>
   );
 };
 
-ChatLog.propTypes ={
-  entries: PropTypes.array.isRequired
+ChatLog.propTypes = {
+  entries: PropTypes.array.isRequired,
+  onLikeToggle: PropTypes.func.isRequired
 };
 
 export default ChatLog;
